@@ -13,4 +13,17 @@ target_link_libraries(
     pthread
     )
 
+
+add_executable(
+    demo_pb
+    {% for s in source + target.demo_protobuf -%}
+    {{ s }}
+    {% endfor %}
+    )
+
+target_link_libraries(
+    demo
+    pthread
+    )
+
 {% endblock %}

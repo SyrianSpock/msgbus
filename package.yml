@@ -15,8 +15,19 @@ target.demo:
     - examples/posix/demo.c
     - examples/posix/port.c
 
+target.demo_protobuf:
+    - examples/protobuf/demo.c
+    - examples/protobuf/generated/simple.pb.c
+    - examples/protobuf/nanopb/pb_common.c
+    - examples/protobuf/nanopb/pb_decode.c
+    - examples/protobuf/nanopb/pb_encode.c
+    - examples/posix/port.c
+
 target.arm:
     - examples/chibios/port.c
+
+include_directories:
+  - examples/protobuf/nanopb
 
 templates:
     demo.jinja: CMakeLists.txt

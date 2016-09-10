@@ -1,0 +1,3 @@
+[submodule "examples/protobuf/nanopb"]
+	path = examples/protobuf/nanopb
+	url = https://github.com/nanopb/nanopb
