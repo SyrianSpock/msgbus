@@ -17,11 +17,12 @@ target.demo:
 
 target.demo_protobuf:
     - examples/protobuf/demo.c
-    - examples/protobuf/generated/simple.pb.c
-    - examples/protobuf/nanopb/pb_common.c
-    - examples/protobuf/nanopb/pb_decode.c
-    - examples/protobuf/nanopb/pb_encode.c
     - examples/posix/port.c
+
+# FIXME if we want to ever mainline the Protobuf+msgbus pattern we should
+# probably use "messages" instead of "target.messages"
+target.messages:
+  - examples/protobuf/simple.proto
 
 target.arm:
     - examples/chibios/port.c

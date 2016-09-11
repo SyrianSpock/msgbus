@@ -7,7 +7,7 @@
 #include <pb.h>
 #include <pb_encode.h>
 #include <pb_decode.h>
-#include "generated/simple.pb.h"
+#include "simple.pb.h"
 
 messagebus_t bus;
 #define TOPIC_NAME "test"

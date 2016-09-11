@@ -13,9 +13,19 @@ target_link_libraries(
     pthread
     )
 
+# Generates message definitions as part of the build
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/examples/protobuf/)
+find_package(Nanopb REQUIRED)
+include_directories(${NANOPB_INCLUDE_DIRS})
+
+nanopb_generate_cpp(PROTO_SRCS PROTO_HDRS {{ target.messages|join(" ") }})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+set_source_files_properties(${PROTO_SRCS} ${PROTO_HDRS}
+    PROPERTIES GENERATED TRUE)
 
 add_executable(
     demo_pb
+    ${PROTO_SRCS} ${PROTO_HDRS}
     {% for s in source + target.demo_protobuf -%}
     {{ s }}
     {% endfor %}
