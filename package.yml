@@ -19,6 +19,11 @@ target.demo_protobuf:
     - examples/protobuf/demo.c
     - examples/posix/port.c
 
+target.benchmark:
+    - examples/protobuf/benchmark.c
+    - examples/posix/port.c
+
+
 # FIXME if we want to ever mainline the Protobuf+msgbus pattern we should
 # probably use "messages" instead of "target.messages"
 target.messages:

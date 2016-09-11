@@ -85,7 +85,7 @@ int main(int argc, const char **argv)
 
     /* Creates a topic and publish it on the bus. */
     messagebus_topic_t topic;
-    uint8_t topic_buffer[128];
+    uint8_t topic_buffer[SimpleMessage_size];
 
     condvar_wrapper_t wrapper = {PTHREAD_MUTEX_INITIALIZER,
                                  PTHREAD_COND_INITIALIZER};

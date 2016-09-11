@@ -32,8 +32,23 @@ add_executable(
     )
 
 target_link_libraries(
-    demo
+    demo_pb
     pthread
     )
+
+add_executable(
+    benchmark
+    ${PROTO_SRCS} ${PROTO_HDRS}
+    {% for s in source + target.benchmark -%}
+    {{ s }}
+    {% endfor %}
+    )
+
+target_link_libraries(
+    benchmark
+    pthread
+    )
+
+
 
 {% endblock %}
