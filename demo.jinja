@@ -14,7 +14,9 @@ target_link_libraries(
     )
 
 # Generates message definitions as part of the build
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/examples/protobuf/)
+set(PYTHON_EXECUTABLE python)
+set(NANOPB_SRC_ROOT_FOLDER ${CMAKE_CURRENT_SOURCE_DIR}/examples/protobuf/nanopb)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${NANOPB_SRC_ROOT_FOLDER}/extra)
 find_package(Nanopb REQUIRED)
 include_directories(${NANOPB_INCLUDE_DIRS})
 
@@ -44,6 +46,7 @@ add_executable(
     {% endfor %}
     )
 
+set_property(TARGET benchmark PROPERTY C_STANDARD 99)
 target_link_libraries(
     benchmark
     pthread
